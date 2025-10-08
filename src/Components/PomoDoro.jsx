@@ -20,7 +20,7 @@ export default function PomoDoro() {
   };
   return (
     <>
-      <div className="my-8 mx-auto max-w-2xl bg-gray-300/20 relative rounded-lg">
+      <div className="my-8 mx-auto max-w-xl bg-gray-300/20 relative rounded-lg">
         <ul className="flex gap-4 justify-center my-4 px-4 py-4">
           {tabs.map((tab) => (
             <li key={tab.id}>
