@@ -2,7 +2,13 @@ import React from "react";
 import MoreBtn from "../assets/more_vert_24.svg";
 import MainLogo from "../assets/pomo-track-logo-fill-24.svg";
 
-export default function SingleTask({ title, totalPomo, completedPomo, note }) {
+export default function SingleTask({
+  title,
+  totalPomo,
+  completedPomo,
+  note,
+  setTaskFormStatus,
+}) {
   return (
     <div className="py-5 my-4 bg-white rounded-lg px-2  text-black">
       <div className="flex justify-between items-center">
@@ -18,6 +24,9 @@ export default function SingleTask({ title, totalPomo, completedPomo, note }) {
             className="bg-gray-200 p-1 rounded cursor-pointer"
             src={MoreBtn}
             alt="More"
+            onClick={() => {
+              setTaskFormStatus("edit");
+            }}
           />
         </div>
       </div>
