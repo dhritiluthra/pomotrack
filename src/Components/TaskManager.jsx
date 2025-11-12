@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import tasks from "../taskData";
 import SingleTask from "./SingleTask";
 import AddTaskForm from "./AddTaskForm";
 
-export default function TaskManager() {
+export default function TaskManager({
+  setSelectedTaskId,
+  taskData,
+  setTaskData,
+}) {
   const [taskFormStatus, setTaskFormStatus] = useState("");
-  const [taskData, setTaskData] = useState(tasks);
   const [editingTaskId, setEditingTaskId] = useState("");
 
   const handleAddTask = () => {
@@ -27,6 +29,7 @@ export default function TaskManager() {
             note={task.note}
             setTaskFormStatus={setTaskFormStatus}
             setEditingTaskId={setEditingTaskId}
+            setSelectedTaskId={setSelectedTaskId}
           />
         );
       })}

@@ -2,6 +2,7 @@ import React from "react";
 import ReportImg from "../assets/report.svg";
 import MainLogo from "../assets/pomo-track-logo-fill-24.svg";
 import SettingsImg from "../assets/settings-18.svg";
+import SettingsOverlay from "./SettingsOverlay";
 
 export default function Header() {
   return (
@@ -13,6 +14,11 @@ export default function Header() {
       <button className="flex items-center justify-center px-2 py-1 rounded-md gap-2 bg-gray-300/20">
         <img src={ReportImg} alt="Report" className="text-white" />
         <span className="text-sm">Report</span>
+      </button>
+      <button className="flex items-center justify-center px-2 py-1 rounded-md gap-2 bg-gray-300/20">
+        <img src={ReportImg} alt="Report" className="text-white" />
+        <span className="text-sm">Settings</span>
+        {/* <SettingsOverlay /> */}
       </button>
     </div>
   );

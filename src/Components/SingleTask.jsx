@@ -10,9 +10,16 @@ export default function SingleTask({
   note,
   setTaskFormStatus,
   setEditingTaskId,
+  setSelectedTaskId,
 }) {
   return (
-    <div className="py-5 my-4 bg-white rounded-lg px-2  text-black">
+    <div
+      className="py-5 my-4 bg-white rounded-lg px-2  text-black outline "
+      onClick={() => {
+        setSelectedTaskId(taskId);
+        console.log(taskId);
+      }}
+    >
       <div className="flex justify-between items-center">
         <div className="flex gap-2">
           <img src={MainLogo} alt="" />

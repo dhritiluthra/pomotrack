@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Timer from "./Timer";
 
-export default function PomoDoro() {
+export default function PomoDoro({ selectedTaskId, taskData }) {
   const [activeTab, setActiveTab] = useState("pomodoro");
   const [count, setCount] = useState({
     focusCount: 1,
@@ -18,6 +18,13 @@ export default function PomoDoro() {
     short: 5 * 60,
     long: 15 * 60,
   };
+
+  const getSelectedTaskTitle = (defaultTaskTitle) => {
+    if (!taskData || !selectedTaskId) return defaultTaskTitle;
+    const selectedTask = taskData.find((task) => task.id === selectedTaskId);
+    return selectedTask ? selectedTask.title : "Task not found";
+  };
+
   return (
     <>
       <div className="my-8 mx-auto max-w-xl bg-gray-300/20 relative rounded-lg">
@@ -50,12 +57,16 @@ export default function PomoDoro() {
         {activeTab != "pomodoro" ? (
           <>
             <p className="text-center">#{count.breakCount}</p>
-            <p className="text-center">Time for a break!</p>
+            <p className="text-center">
+              {getSelectedTaskTitle("Time for a break!")}
+            </p>
           </>
         ) : (
           <>
             <p className="text-center">#{count.focusCount}</p>
-            <p className="text-center">Time to focus!</p>
+            <p className="text-center">
+              {getSelectedTaskTitle("Time to focus!")}
+            </p>
           </>
         )}
       </div>
